@@ -1,0 +1,24 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app">
+    <!-- Ao utilizar v-on:input estamos referenciando o evento de iserir dados dentro do input -->
+    <input type="text" v-on:input="alterarTitulo">
+    <p>{{ titulo }}</p>
+</div>
+
+<script>
+    new Vue({
+      el: '#app',
+      data: {
+        titulo: 'Usando Vu2 Js 2'
+      },
+      methods: {
+        /** Utilizando a chamado da função podemos passar o evento que está ocorrendo 
+        pois quem está chamando está passando um evento*/
+        alterarTitulo: function (event) {
+          this.titulo = event.target.value
+        }
+      
+      }
+    })
+</script>
