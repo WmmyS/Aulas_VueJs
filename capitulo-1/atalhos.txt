@@ -3,3 +3,8 @@ div.estilo-1            = <div class="estilo1"></div>
 div#teste.estilo-2      = <div id="teste" class="estilo-2"></div>
 img[src]                = <img src="" alt="">
 p[teste]#texto.estilo-3 = <p teste="" id="texto" class="estilo-3"></p>
+
+vscode:
+
+alt + shift + baixo => duplica linhas selecionadas
+ctrl + D            => selecionar todos os valores iguais
