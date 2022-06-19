@@ -1,0 +1,26 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app">
+    <!-- Interpretado ou interpolado -->
+    <p>{{ titulo }}</p>
+    <p>{{ saudacao() }}</p>
+    <!-- Diretiva -->
+    <a v-bind:href="link">Google</a>
+</div>
+
+<script>
+  new Vue({
+    el: '#app',
+    data: {
+      titulo: 'Usando VueJs',
+      link: 'http://google.com.br'
+    },
+    methods: {
+      saudacao: function() {
+        console.log(this)
+        return this.titulo
+      }
+    }
+  })
+
+</script>
