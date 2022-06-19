@@ -1,0 +1,54 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app">
+    <p>{{ contador }}</p>
+    <!-- v-on:click para escutar eventos de click  -->
+    <!-- se colocássemos v-once o valor seria alterado porém não mostrado na página -->
+    <!-- parâmetro exclusivo do VUE para receber evento $event -->
+    <button v-on:click="somar(5, $event)">Somar 1</button>
+    <p v-on:mousemove="atualizarXY" >
+      Mouse: x: {{ x }}, y: {{ y }}
+      <span v-on:mousemove.stop="">PARAR AQUI!</span>
+    </p>
+    <!-- Prevenir um evento de comportamento padrão -->
+    <a v-on:click.prevent="" href="http://google.com.br">Google</a>
+    <hr>
+    <!-- Encadeando teclas apertadas Alt + Enter -->
+    <input type="text" v-on:keyup.enter.alt="exibirAlerta">
+</div>
+
+<script>
+  new Vue({
+    el: '#app',
+    data: {
+      contador: 0,
+      x: 0,
+      y: 0,
+    },
+    methods: {
+      // recebendo o valor e vento
+      somar(passo, event) {
+        console.log(passo, event)
+        this.contador += passo
+      },
+      atualizarXY(event) {
+        // Recupera as posições do mouse
+        this.x = event.clientX
+        this.y = event.clientY
+        console.log()
+      },
+      // Evento que pode ser substituído pelo modificador de evento stop
+      parar(event) {
+        event.stopPropagation()
+      },
+      // Prevenir um evento padrão de um componente
+      prevent(event) {
+        event.preventDefault()
+      },
+      exibirAlerta() {
+        alert('Estou te alertando')
+      }
+    }
+  })
+
+</script>
