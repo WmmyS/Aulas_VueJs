@@ -1,14 +1,14 @@
 <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 
 <div id="app">
-    <!-- Two way data bind -->
+    <!-- Two way data bind  -->
     <p>{{ titulo }}</p>
     <input type="text" v-bind:value="titulo"
         v-on:input="titulo = $event.target.value">
-
-    <!-- Otra forma de fazer o two way data bind -->
+    <!-- Forma mais simples -->
     <p> {{ titulo2 }} </p>
     <input type="text" v-model="titulo2">
+
 </div>
 
 <script>
@@ -16,7 +16,7 @@
     el: '#app',
     data: {
       titulo: 'Usando VueJs',
-      titulo2: 'Otra forma'
+      titulo2: 'Teste'
     }
   })
 
