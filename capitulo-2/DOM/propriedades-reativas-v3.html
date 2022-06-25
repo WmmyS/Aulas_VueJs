@@ -1,18 +1,24 @@
 <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 
 <div id="app">
-  <button v-on:click="aumentar">Aumentar</button>
-  <button v-on:click="diminuir">Diminuir</button>
+  <button v-on:click="aumentar">Aumentar 1</button>
+  <button v-on:click="diminuir">Diminuir 1</button>
   <br>
   <div style="margin-top: 5px;">
     <button v-on:click="contador2++">Aumentar 2</button>
     <button v-on:click="contador2--">Diminuir 2</button>
   </div>
+  <div style="margin-top: 5px;">
+    <button v-on:click="contador3++">Aumentar 3</button>
+    <button v-on:click="contador3--">Diminuir 3</button>
+  </div>
 
   <p>Contador 1: {{ contador }} </p>
   <p>Contador 2: {{ contador2 }} </p>
+  <p>Contador 3: {{ contador3 }} </p><p>Após 2 segundos o contador 3 vai zerar</p>
   <p>Resultado 1: {{ resultado }} </p>
-  <p>Resultado 1: {{ resultado2 }} </p>
+  <p>Resultado 2: {{ resultado2 }} </p>
+  <p>Resultado 3: {{ resultado2 }} </p>
 
 </div>
 
@@ -22,6 +28,7 @@
     data: {
       contador: 0,
       contador2: 0,
+      contador3: 0,
 
     },
     // O método resultado não será chamado de forma desnecessária pois ele é um método computado
@@ -33,6 +40,15 @@
       resultado2() {
         console.log('Método resultado chamado...')
         return this.contador2 >= 5? 'Maior ou igual a 5' : 'Menor que 5'
+      }
+    },
+    watch: {
+      // Irá observar esse contador e retornar o novo valor e o antigo
+      contador3(novo, antigo) {
+        console.log(`valor novo ${novo}, valor antigo ${antigo}`)
+        setTimeout(() => {
+          this.contador3 = 0
+        }, 2000)
       }
     },
     methods: {
