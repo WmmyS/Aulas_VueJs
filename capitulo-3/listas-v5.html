@@ -4,10 +4,11 @@
 <div id="app">
     <!-- Mostrando os itens da lista com os índices-->
     <ul>
-        <li v-for="(cor, indice) in cores"> {{ indice + 1 }}) - {{ cor }}</li>
+        <li v-for="(cor, indice) in cores" :key="cor"> {{ indice + 1 }}) - {{ cor }}</li>
     </ul>
+    <button @click="cores.push('branca')">Adicionar</button>
+    <hr>
     <!-- Diferênça entre o template e a div -->
-    
     <template v-for="(cor, index) in cores">
         <h1> {{ cor }} </h1>
         <p> {{ index }} </p>
@@ -25,6 +26,8 @@
             </div>
         </li>
     </ul>
+    <hr>
+    <div v-for="n in 10"> {{ n }} </div>
 </div>
 <script>
     new Vue({
