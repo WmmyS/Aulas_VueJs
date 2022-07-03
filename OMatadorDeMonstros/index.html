@@ -1,0 +1,39 @@
+<meta charset="UTF-8">
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<link rel="stylesheet" href="./assets/css/style.css">
+
+<div id="app">
+    <div class="window center">
+        <div id="players">
+            <div class="warrior playersBox">
+                <p class="playerTitle">Jogador</p>
+                <div class="life center">
+                    <div class="lifebar"></div>
+                    <p class="lifepoints"> {{ warriorPoints }} %</p>
+                </div>
+            </div>
+            <div class="monster playersBox">
+                <p class="playerTitle">Monstro</p>
+                <div class="life center">
+                    <div class="lifebar"></div>
+                    <p class="lifepoints"> {{ monsterPoints }} %</p>
+                </div>
+            </div>
+        </div>
+        <div id="bottons">
+            <input type="button" class="button" value="Atacar">
+            <input type="button" class="button" value="Ataque Especial">
+            <input type="button" class="button" value="Curar">
+            <input type="button" class="button" value="Desistir">
+        </div>
+    </div>
+    <div id="log" class="window center">
+        <ul>
+            <li v-for="event in events">
+                <p class="logEvent"> {{ event }} </p>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<script src="./assets/js/app.js"></script>
