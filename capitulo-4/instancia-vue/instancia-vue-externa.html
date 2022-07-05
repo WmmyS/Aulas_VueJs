@@ -1,0 +1,38 @@
+<meta chaset="UTF-8">
+<script src="https://unpkg.com/vue@2"></script>
+
+<div id="app1">
+    {{ titulo1 }}
+    <input type="button" @click="adicionar()" value="Adicionar">
+</div>
+<div id="app2">
+    {{ titulo2 }}
+    <input type="button" @click="adicionar()" value="Adicionar">
+</div>
+
+<script>
+    const vm1 = new Vue({
+        el: '#app1',
+        data: {
+            titulo1: 'Teste 1'
+        },
+        methods : {
+            adicionar() {
+                vm2.titulo2+= '!!!!'
+            }
+        }
+
+    })
+
+    const vm2 = new Vue({
+        el: '#app2',
+        data: {
+            titulo2: 'Teste 2'
+        },
+        methods : {
+            adicionar() {
+                vm1.titulo1+= '!!!!'
+            }
+        }
+    })
+</script>
